@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="pre_define">
+      <UniqueIdentifier>{9aa6a50f-ee56-4658-be44-3a8399a93f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pre_define\pch">
+      <UniqueIdentifier>{a73a42b7-86ec-4fbf-ba37-9e19c446607a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pre_define\Singleton">
+      <UniqueIdentifier>{36d70e77-98ac-4dd9-aa8e-fc5852e8e960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IOExecutor">
+      <UniqueIdentifier>{50a4ef46-eabb-4ec2-a856-fde632224194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DS">
+      <UniqueIdentifier>{4840f42d-e672-4392-903a-ed417138e620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DS\LFQueue">
+      <UniqueIdentifier>{347f48ec-baef-40f9-96be-6293cde6f8c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{5abe6f9e-229d-46be-a62e-012cd2cbbfcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\RecvBuffer">
+      <UniqueIdentifier>{2c489026-482a-42bf-bd2a-b24e2891d47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\SendBuffer">
+      <UniqueIdentifier>{a862d5be-22cd-491d-8740-765935fe7c03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{42fee52a-1d29-4f24-8cf9-1e0b1f8136b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\PacketBase">
+      <UniqueIdentifier>{8e45d5fc-9faf-4cb9-abd2-4e32cb19f884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{533491d3-1e5c-4cb2-955e-27550192cbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol\c2s_PacketHandler">
+      <UniqueIdentifier>{dae6d8de-8de1-4118-9d27-6445387e7aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents">
+      <UniqueIdentifier>{d0c00f56-9b11-4035-9135-31f8569c010b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\MCTilemap">
+      <UniqueIdentifier>{6c262a81-3a9c-42e4-8f37-08ec1377d0e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\MCTerrainGenerator">
+      <UniqueIdentifier>{f2ae387f-3dda-4b15-9fae-9c93e360ab7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\MCWorld">
+      <UniqueIdentifier>{afe79ecd-c855-4615-a84f-02bbfb045414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Timer">
+      <UniqueIdentifier>{b06eab26-e1fd-4529-b224-07f79d5c4bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pre_define\CustomMath">
+      <UniqueIdentifier>{fb8b7365-9407-464e-8652-8bab21e493cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pre_define\func">
+      <UniqueIdentifier>{fa65aa54-5e7f-4c30-8892-a0085374fc40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\GlobalTimer">
+      <UniqueIdentifier>{a95fa3cb-40df-49b2-8d07-85659cf0644b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Object">
+      <UniqueIdentifier>{043a075e-9c57-4f4e-889a-2207eaa5d67c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Object\Component">
+      <UniqueIdentifier>{da8b152e-c199-4fd5-8220-9e0bc5dc79c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Object\Component\EntityMovement">
+      <UniqueIdentifier>{e2256792-6229-45e5-bc3a-14d502180b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Object\Component\FSM">
+      <UniqueIdentifier>{33e59595-fda8-492f-b672-929f0565151a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DS\SendBufferPool">
+      <UniqueIdentifier>{e641f263-4d1b-41e4-8419-6ea6d629805e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\MCWorld\MCObjectFactory">
+      <UniqueIdentifier>{5f36c0d7-3211-4bf6-aeb4-a38cb23be079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCContents\Object\State">
+      <UniqueIdentifier>{3a6cc06e-7888-4208-88ed-cf554c175f1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\MCItemTable">
+      <UniqueIdentifier>{09937171-ef58-4696-bc81-54d76fc45fae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>pre_define\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="IOExecutor.cpp">
+      <Filter>IOExecutor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RecvBuffer.cpp">
+      <Filter>Common\RecvBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\SendBuffer.cpp">
+      <Filter>Common\SendBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="c2s_PacketHandler.cpp">
+      <Filter>Protocol\c2s_PacketHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketBase.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="MCWorld.cpp">
+      <Filter>MCContents\MCWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="MCTilemap.cpp">
+      <Filter>MCContents\MCTilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="MCTerrainGenerator.cpp">
+      <Filter>MCContents\MCTerrainGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>MCContents\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>pre_define\func</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\GlobalTimer.cpp">
+      <Filter>Common\GlobalTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>MCContents\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityMovement.cpp">
+      <Filter>MCContents\Object\Component\EntityMovement</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM.cpp">
+      <Filter>MCContents\Object\Component\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>MCContents\Object\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SendBufferPool.cpp">
+      <Filter>DS\SendBufferPool</Filter>
+    </ClCompile>
+    <ClCompile Include="MCObjectFactory.cpp">
+      <Filter>MCContents\MCWorld\MCObjectFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>MCContents\Object\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\MCItemTable.cpp">
+      <Filter>Common\MCItemTable</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>pre_define\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>pre_define\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="IOExecutor.h">
+      <Filter>IOExecutor</Filter>
+    </ClInclude>
+    <ClInclude Include="LFQueue.hpp">
+      <Filter>DS\LFQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RecvBuffer.h">
+      <Filter>Common\RecvBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\SendBuffer.h">
+      <Filter>Common\SendBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Constants.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.hpp">
+      <Filter>DS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\PacketBase.hpp">
+      <Filter>Common\PacketBase</Filter>
+    </ClInclude>
+    <ClInclude Include="c2s_PacketHandler.h">
+      <Filter>Protocol\c2s_PacketHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="MCWorld.h">
+      <Filter>MCContents\MCWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="MCTilemap.h">
+      <Filter>MCContents\MCTilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="MCTerrainGenerator.h">
+      <Filter>MCContents\MCTerrainGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>MCContents\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="PerlinNoise.hpp">
+      <Filter>pre_define\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="packet_define.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>pre_define\func</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\GlobalTimer.h">
+      <Filter>Common\GlobalTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomMath.hpp">
+      <Filter>pre_define\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>pre_define\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.hpp">
+      <Filter>pre_define\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>MCContents\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>MCContents\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityMovement.h">
+      <Filter>MCContents\Object\Component\EntityMovement</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM.h">
+      <Filter>MCContents\Object\Component\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>MCContents\Object\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SendBufferPool.h">
+      <Filter>DS\SendBufferPool</Filter>
+    </ClInclude>
+    <ClInclude Include="MCObjectFactory.h">
+      <Filter>MCContents\MCWorld\MCObjectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>MCContents\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\MCItemTable.h">
+      <Filter>Common\MCItemTable</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

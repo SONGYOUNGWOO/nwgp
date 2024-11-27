@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Precompiled Headers">
+      <UniqueIdentifier>{2bb1e746-4b1a-4196-877d-10906418eb3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject">
+      <UniqueIdentifier>{0dc73bce-c286-4628-ac03-2f6d4cfb4e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\Player">
+      <UniqueIdentifier>{fb7cc27c-8e81-470c-b9b4-936d943d3bd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\PlayerCam">
+      <UniqueIdentifier>{1889f580-1079-45b2-84e0-f95f9af44a08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\Bullet">
+      <UniqueIdentifier>{255ff973-96de-47f8-915a-4b14e32d44bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\ChunkMesh">
+      <UniqueIdentifier>{46bcdba9-83ac-463b-8756-8a3b0e9ae578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\PlayerShadow">
+      <UniqueIdentifier>{98a129d5-1d03-42f0-9ccb-c29ecd90d519}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\Player\Hero">
+      <UniqueIdentifier>{e67e948f-5539-4125-817c-f43b1801399a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\Monster">
+      <UniqueIdentifier>{6b34388e-4f51-479c-873b-8a7e9cb3ab43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\EnderEye">
+      <UniqueIdentifier>{d38dc739-69ac-4534-8360-185fb6b0128e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{f6b44639-873c-4fee-a35d-a6aef96a5a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\ServerObject">
+      <UniqueIdentifier>{b68cbb05-57b5-4068-8949-65dfca258eb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{11e42607-4a6c-48b4-9b4c-707389a64f58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\NetworkMgr">
+      <UniqueIdentifier>{9759ddbf-30fb-4c44-b8f9-ff277f11eabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Protocol">
+      <UniqueIdentifier>{da24d11a-87ed-4148-822c-f46729f06fc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Protocol\s2c_PacketHandler">
+      <UniqueIdentifier>{4af8fff7-6010-4fe1-99c7-1f8660b7f2f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\ServerObjectManager">
+      <UniqueIdentifier>{81ea30f3-30d2-491f-a451-548e3ee13630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\GlobalTimer">
+      <UniqueIdentifier>{e78b4073-bdea-4a69-bf97-6840df372b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\Projectile">
+      <UniqueIdentifier>{5cd7640d-d475-493b-b61a-1b228960fc46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServerObjectFactory">
+      <UniqueIdentifier>{90e1c9f6-bf63-41bf-bae7-5339240bd507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCTilemap">
+      <UniqueIdentifier>{1e17aebf-c5b7-4d9d-bbe4-d6b9ff366708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MCItem">
+      <UniqueIdentifier>{56a460ed-e7b5-4d73-b7c9-aaba8b748733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CaveObject\DropItem">
+      <UniqueIdentifier>{badfb0e7-dda0-4d2b-8c88-49fd6a117492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\MCItemTable">
+      <UniqueIdentifier>{039525be-9954-4478-86f5-b219e58e6176}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Precompiled Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>CaveObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCam.cpp">
+      <Filter>CaveObject\PlayerCam</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>CaveObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkMesh.cpp">
+      <Filter>CaveObject\ChunkMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerShadow.cpp">
+      <Filter>CaveObject\PlayerShadow</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>CaveObject\Player\Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>CaveObject\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="EnderEye.cpp">
+      <Filter>CaveObject\EnderEye</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerObject.cpp">
+      <Filter>CaveObject\ServerObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerObjectManager.cpp">
+      <Filter>Network\ServerObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\RecvBuffer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\SendBuffer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="s2c_PacketHandler.cpp">
+      <Filter>Network\Protocol\s2c_PacketHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkMgr.cpp">
+      <Filter>Network\NetworkMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketBase.cpp">
+      <Filter>Network\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GlobalTimer.cpp">
+      <Filter>Common\GlobalTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileArrow.cpp">
+      <Filter>CaveObject\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerObjectFactory.cpp">
+      <Filter>ServerObjectFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="MCTerrainGenerator.cpp">
+      <Filter>MCTilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="MCTilemap.cpp">
+      <Filter>MCTilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="MCTilemapMeshGenerator.cpp">
+      <Filter>MCTilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkRendererObject.cpp">
+      <Filter>MCTilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="MCItem.cpp">
+      <Filter>MCItem</Filter>
+    </ClCompile>
+    <ClCompile Include="MCItemContainer.cpp">
+      <Filter>MCItem</Filter>
+    </ClCompile>
+    <ClCompile Include="MCItemManager.cpp">
+      <Filter>MCItem</Filter>
+    </ClCompile>
+    <ClCompile Include="MCItemStack.cpp">
+      <Filter>MCItem</Filter>
+    </ClCompile>
+    <ClCompile Include="DropItem.cpp">
+      <Filter>CaveObject\DropItem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\MCItemTable.cpp">
+      <Filter>Common\MCItemTable</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vector3D.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomMath.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PerlinNoise.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Precompiled Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>CaveObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCam.h">
+      <Filter>CaveObject\PlayerCam</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>CaveObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkMesh.h">
+      <Filter>CaveObject\ChunkMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerShadow.h">
+      <Filter>CaveObject\PlayerShadow</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>CaveObject\Player\Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>CaveObject\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="EnderEye.h">
+      <Filter>CaveObject\EnderEye</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerObject.h">
+      <Filter>CaveObject\ServerObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerObjectManager.h">
+      <Filter>Network\ServerObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Constants.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PacketBase.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\RecvBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\SendBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="s2c_PacketHandler.h">
+      <Filter>Network\Protocol\s2c_PacketHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMgr.h">
+      <Filter>Network\NetworkMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="packet_define.h">
+      <Filter>Network\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GlobalTimer.h">
+      <Filter>Common\GlobalTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileArrow.h">
+      <Filter>CaveObject\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerObjectFactory.h">
+      <Filter>ServerObjectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MCTerrainGenerator.h">
+      <Filter>MCTilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="MCTilemap.h">
+      <Filter>MCTilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="MCTilemapMeshGenerator.h">
+      <Filter>MCTilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkRendererObject.h">
+      <Filter>MCTilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItem.h">
+      <Filter>MCItem</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItemContainer.h">
+      <Filter>MCItem</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItemManager.h">
+      <Filter>MCItem</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItemStack.h">
+      <Filter>MCItem</Filter>
+    </ClInclude>
+    <ClInclude Include="Registry.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DropItem.h">
+      <Filter>CaveObject\DropItem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\MCItemTable.h">
+      <Filter>Common\MCItemTable</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
