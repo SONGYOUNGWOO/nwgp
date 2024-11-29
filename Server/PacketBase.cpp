@@ -43,32 +43,40 @@ DECLARE_PACKET_FUNC(c2s_ENTER)
 
 DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 {
-	s2c_DESTROY_BLOCK pkt;
-	pkt.x = pkt_.x;
-	pkt.y = pkt_.y;
-	pkt.z = pkt_.z;
-	
-	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
-	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0);
+	//s2c_DESTROY_BLOCK pkt;
+	//pkt.x = pkt_.x;
+	//pkt.y = pkt_.y;
+	//pkt.z = pkt_.z;
+	//
+	//Mgr(IOExecutor)->AppendToSendBuffer(pkt);
+	//Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0);
 }
 
 DECLARE_PACKET_FUNC(c2s_CREATE_BLOCK)
 {
-	s2c_CREATE_BLOCK pkt;
-	pkt.x = pkt_.x;
-	pkt.y = pkt_.y;
-	pkt.z = pkt_.z;
-	pkt.tile_id = pkt_.tile_id;
-	
-	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
+	//s2c_CREATE_BLOCK pkt;
+	//pkt.x = pkt_.x;
+	//pkt.y = pkt_.y;
+	//pkt.z = pkt_.z;
+	//pkt.tile_id = pkt_.tile_id;
+	//
+	//Mgr(IOExecutor)->AppendToSendBuffer(pkt);
 
-	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, pkt_.tile_id);
+	//Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, pkt_.tile_id);
 }
 
 DECLARE_PACKET_FUNC(c2s_ADD_OBJECT)
 {
-	
+	s2c_ADD_OBJECT pkt;
+	pkt.object_id = pkt_.object_id;
+	pkt.position_x = pkt_.position_x;
+	pkt.position_y = pkt_.position_y;
+	pkt.position_z = pkt_.position_z;
+	pkt.rotation_y = pkt_.rotation_y;
+	pkt.obj_type = (uint8)MC_OBJECT_TYPE::PLAYER;
+	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
 }
+
 
 DECLARE_PACKET_FUNC(c2s_MOVE_OBJECT)
 {
