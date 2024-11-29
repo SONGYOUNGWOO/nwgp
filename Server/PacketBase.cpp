@@ -62,15 +62,15 @@ DECLARE_PACKET_FUNC(c2s_ITEM_DROP)
 
 DECLARE_PACKET_FUNC(c2s_CREATE_BLOCK)
 {
-	//s2c_CREATE_BLOCK pkt;
-	//pkt.x = pkt_.x;
-	//pkt.y = pkt_.y;
-	//pkt.z = pkt_.z;
-	//pkt.tile_id = pkt_.tile_id;
-	//
-	//Mgr(IOExecutor)->AppendToSendBuffer(pkt);
+	s2c_CREATE_BLOCK pkt;
+	pkt.x = pkt_.x;
+	pkt.y = pkt_.y;
+	pkt.z = pkt_.z;
+	pkt.tile_id = pkt_.tile_id;
+	
+	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
 
-	//Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, pkt_.tile_id);
+	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, pkt_.tile_id);
 }
 
 DECLARE_PACKET_FUNC(c2s_ADD_OBJECT)
