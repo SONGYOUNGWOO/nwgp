@@ -35,7 +35,7 @@ DECLARE_PACKET_FUNC(s2c_ENTER)
 
 DECLARE_PACKET_FUNC(s2c_DESTROY_BLOCK)
 {
-	Mgr(ServerObjectManager)->GetHero()->DestroyBlock({pkt_.x,pkt_.y,pkt_.z}, pkt_.tile_id);
+	Mgr(ServerObjectManager)->GetHero()->DestroyBlock({pkt_.x,pkt_.y,pkt_.z});
 }
 
 

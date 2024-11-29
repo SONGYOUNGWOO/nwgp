@@ -70,7 +70,7 @@ public:
 	void InitCamDirection()noexcept;
 	void SetRendererTexture(int id);
 	void ValidateRendererTexture();
-	int DestroyBlock(const glm::ivec3& hitTilePosition, uint8_t tile_id)noexcept;
+	int DestroyBlock(const glm::ivec3& hitTilePosition)noexcept;
 	void CreateBlock(const glm::ivec3& hitTilePosition, uint8_t tile_id)noexcept; // 
 	bool IsHero()const noexcept { return m_bIsHero; }
 

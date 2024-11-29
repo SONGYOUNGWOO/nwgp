@@ -274,7 +274,7 @@ void Player::UpdateCameraTransform(const shared_ptr<Transform>& pCameraTransfrom
 	pCameraTransfrom->SetLocalPosition(glm::vec3(glm::sin(tParam) * mParam, glm::sin(tParam * 2.0f) * mParam, pCameraTransfrom->GetLocalPosition().z));
 }
 
-int Player::DestroyBlock(const glm::ivec3& hitTilePosition, uint8_t tile_id)noexcept
+int Player::DestroyBlock(const glm::ivec3& hitTilePosition)noexcept
 {
 	// 쓰고있는 텍스쳐의 이름 또는 인덱스, 아니면 텍스쳐포인터를 알면됌
 	// Can get the texture index through the tilemap
