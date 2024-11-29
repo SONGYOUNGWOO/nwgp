@@ -200,7 +200,8 @@ int main()
         pEnderEye->GetTransform()->SetLocalScale(glm::one<glm::vec3>() * 0.5f);
         curScene->AddObject(pEnderEye, GROUP_TYPE::DEFAULT);
 
-        // 드랍 아이템 생성 예시 코드
+		// 드랍 아이템 생성 - 클라에서 부신 블럭의 아이템의 id를 서버로 보내고 
+        // 서버에서 클라로 다시 보내준 아이템 id를 이용해서 아이템 생성?
        // auto pDropItem = make_shared<DropItem>(tilemap, Mgr(MCItemManager)->GetItemByID(10), 1);
        // pDropItem->GetTransform()->SetLocalPosition(glm::vec3(64.0f, 16.0f, 64.0f));
        // curScene->AddObject(pDropItem, GROUP_TYPE::DEFAULT);

@@ -274,38 +274,44 @@ void Player::UpdateCameraTransform(const shared_ptr<Transform>& pCameraTransfrom
 	pCameraTransfrom->SetLocalPosition(glm::vec3(glm::sin(tParam) * mParam, glm::sin(tParam * 2.0f) * mParam, pCameraTransfrom->GetLocalPosition().z));
 }
 
-void Player::DestroyBlock(const glm::ivec3& hitTilePosition)noexcept
+int Player::DestroyBlock(const glm::ivec3& hitTilePosition)noexcept
 {
 	// 쓰고있는 텍스쳐의 이름 또는 인덱스, 아니면 텍스쳐포인터를 알면됌
 	// Can get the texture index through the tilemap
 	const uint8_t tileID = m_refTilemap->GetTile(hitTilePosition);
 	if (tileID == 0)
-		return;
-	const int textureID = Tile::TEXTURES[tileID][2];
-	m_refTilemap->SetTile(hitTilePosition, 0, true);
+		return 0;
+	else {
 
-	const string tex_name = std::format("tile_{}.png", textureID);
-	auto iter = g_mapParticleUniqueObject.find(tex_name);
-	shared_ptr<Material> mate;
-	// If the particle does not exist, create new particle object
-	if (g_mapParticleUniqueObject.end() == iter)
-	{
-		mate = make_shared<Material>();
-		mate->AddTexture2D(tex_name);
-		auto particle = make_shared<GameObj>(*m_particlePrefab);
-		particle->GetComp<MeshRenderer>()->AddMaterial(mate);
-		particle->SetResName(tex_name);
-		iter = g_mapParticleUniqueObject.emplace(tex_name, particle).first;
-	}
+		const int textureID = Tile::TEXTURES[tileID][2];
+		m_refTilemap->SetTile(hitTilePosition, 0, true);
 
-	Mgr(InstancingMgr)->AddInstancingList(iter->second);
-	if (mate)
-	{
-		Mgr(InstancingMgr)->SetAllObjMaterials(tex_name, mate);
+		const string tex_name = std::format("tile_{}.png", textureID);
+		auto iter = g_mapParticleUniqueObject.find(tex_name);
+		shared_ptr<Material> mate;
+		// If the particle does not exist, create new particle object
+		if (g_mapParticleUniqueObject.end() == iter)
+		{
+			mate = make_shared<Material>();
+			mate->AddTexture2D(tex_name);
+			auto particle = make_shared<GameObj>(*m_particlePrefab);
+			particle->GetComp<MeshRenderer>()->AddMaterial(mate);
+			particle->SetResName(tex_name);
+			iter = g_mapParticleUniqueObject.emplace(tex_name, particle).first;
+		}
+
+		Mgr(InstancingMgr)->AddInstancingList(iter->second);
+		if (mate)
+		{
+			Mgr(InstancingMgr)->SetAllObjMaterials(tex_name, mate);
+		}
+		Mgr(ParticleMgr)->SetParticles(iter->second, 0.1f, (glm::vec3(hitTilePosition) + glm::one<glm::vec3>() * 0.5f));
+		DestroyObj(iter->second);
+		Mgr(SoundMgr)->PlayEffect(Tile::TILE_BREAK_SOUND[tileID], 0.5f);
+
+		return tileID;
 	}
-	Mgr(ParticleMgr)->SetParticles(iter->second, 0.1f, (glm::vec3(hitTilePosition) + glm::one<glm::vec3>() * 0.5f));
-	DestroyObj(iter->second);
-	Mgr(SoundMgr)->PlayEffect(Tile::TILE_BREAK_SOUND[tileID], 0.5f);
+	
 }
 
 void Player::CreateBlock(const glm::ivec3& hitTilePosition, uint8_t tile_id)noexcept
