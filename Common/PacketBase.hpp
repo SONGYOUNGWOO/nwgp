@@ -165,7 +165,7 @@ struct c2s_DESTROY_BLOCK
     :public PacketHeader
 {
     uint8 x, y, z;
-    // uint8_t tile_id;
+    uint8_t tile_id;
     DECLARE_PACKET(c2s_DESTROY_BLOCK);
 };
 
@@ -173,7 +173,7 @@ struct s2c_DESTROY_BLOCK
     :public PacketHeader
 {
     uint8 x, y, z;
-    // uint8_t tile_id;
+    uint8_t tile_id;
     DECLARE_PACKET(s2c_DESTROY_BLOCK);
 };
 //
