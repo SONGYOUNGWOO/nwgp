@@ -43,13 +43,21 @@ DECLARE_PACKET_FUNC(c2s_ENTER)
 
 DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 {
-	//s2c_DESTROY_BLOCK pkt;
-	//pkt.x = pkt_.x;
-	//pkt.y = pkt_.y;
-	//pkt.z = pkt_.z;
-	//
-	//Mgr(IOExecutor)->AppendToSendBuffer(pkt);
-	//Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0);
+	s2c_DESTROY_BLOCK pkt;
+	pkt.x = pkt_.x;
+	pkt.y = pkt_.y;
+	pkt.z = pkt_.z;
+	
+	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
+	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0); // 블럭 파괴
+	// 블럭의 종류 까지 같이 보내야함
+	// 블럭의 종류를 같이 보내면 클라에서 블럭을 파괴할때 블럭의 종류를 알수있음
+	// 아이템 드랍 
+}
+
+DECLARE_PACKET_FUNC(c2s_ITEM_DROP)
+{
+
 }
 
 DECLARE_PACKET_FUNC(c2s_CREATE_BLOCK)

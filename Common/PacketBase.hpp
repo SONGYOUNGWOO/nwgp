@@ -50,6 +50,7 @@ enum class PKT_ID : uint8
     s2c_MON_ATK = 17,
 
     s2c_ITEM_DROP = 18,
+    c2s_ITEM_DROP = 19,
 
 
 
@@ -164,6 +165,7 @@ struct c2s_DESTROY_BLOCK
     :public PacketHeader
 {
     uint8 x, y, z;
+    // uint8_t tile_id;
     DECLARE_PACKET(c2s_DESTROY_BLOCK);
 };
 
@@ -171,6 +173,7 @@ struct s2c_DESTROY_BLOCK
     :public PacketHeader
 {
     uint8 x, y, z;
+    // uint8_t tile_id;
     DECLARE_PACKET(s2c_DESTROY_BLOCK);
 };
 //
@@ -317,5 +320,13 @@ struct s2c_ITEM_DROP
     DECLARE_PACKET(s2c_ITEM_DROP);
 };
 
+struct c2s_ITEM_DROP
+    :public PacketHeader
+{
+    float x, y, z;
+    uint32_t obj_id;
+    uint32_t item_type;
+    DECLARE_PACKET(c2s_ITEM_DROP);
+};
 
 #pragma pack (pop)
