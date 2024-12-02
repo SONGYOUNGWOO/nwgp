@@ -90,11 +90,19 @@ DECLARE_PACKET_FUNC(s2c_MON_ATK)
 
 DECLARE_PACKET_FUNC(s2c_ITEM_DROP)
 {
-	// 아이템 종류, 수량 등 더 받아야할정보가 있음
-	auto pDropItem = make_shared<DropItem>(GetTileMapGlobal(), Mgr(MCItemManager)->GetItemByID(10), 1);
-	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x,pkt_.y,pkt_.z });
+	// 아이템 드롭 데이터 처리
+	auto tilemap = GetTileMapGlobal();
+
+	// tileID 기반으로 아이템 정보 추출 (Mgr(MCItemManager) 대체)
+	auto item = Mgr(MCItemManager)->GetItemByID(pkt_.item_type);
+	if (!item) return; // 아이템이 유효하지 않으면 처리하지 않음
+
+	// DropItem 객체 생성
+	auto pDropItem = make_shared<DropItem>(tilemap, item, 1); // pkt_.stack_size도 추가 고려 가능
+	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x, pkt_.y, pkt_.z });
 	pDropItem->SetID(pkt_.obj_id);
-	// 확인용
+
+	// 확인용 크기 설정 및 추가 처리
 	pDropItem->GetTransform()->SetLocalScale(5.f);
 	Mgr(ServerObjectManager)->AddObject(std::move(pDropItem), GROUP_TYPE::DROP_ITEM);
 }

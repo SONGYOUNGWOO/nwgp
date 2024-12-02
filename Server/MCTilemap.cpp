@@ -63,6 +63,7 @@ void MCTilemap::SetTile(int x, int y, int z, uint8_t tile, bool notify) noexcept
 	}
 }
 
+
 void MCTilemap::SetTile(const glm::ivec3& v, uint8_t tile, bool notify) noexcept
 {
 	SetTile(v.x, v.y, v.z, tile, notify);

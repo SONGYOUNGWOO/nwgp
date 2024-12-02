@@ -52,13 +52,21 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0); // 블럭 파괴
 	// 블럭의 종류 까지 같이 보내야함
 	// 블럭의 종류를 같이 보내면 클라에서 블럭을 파괴할때 블럭의 종류를 알수있음
-	// 아이템 드랍 
+
+	// 드롭 아이템 처리
+	s2c_ITEM_DROP dropPkt;
+	dropPkt.x = pkt.x;
+	dropPkt.y = pkt.y;
+	dropPkt.z = pkt.z;
+	dropPkt.item_type = pkt.tile_id;  // tileID를 그대로 사용
+	dropPkt.obj_id = static_cast<uint32_t>(id); // 플레이어 또는 고유 ID 설정
+
+	// 드롭 정보 전송
+	Mgr(IOExecutor)->AppendToSendBuffer(dropPkt);
+
 }
 
-DECLARE_PACKET_FUNC(c2s_ITEM_DROP)
-{
 
-}
 
 DECLARE_PACKET_FUNC(c2s_CREATE_BLOCK)
 {

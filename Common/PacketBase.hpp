@@ -320,13 +320,13 @@ struct s2c_ITEM_DROP
     DECLARE_PACKET(s2c_ITEM_DROP);
 };
 
-struct c2s_ITEM_DROP
-    :public PacketHeader
-{
-    float x, y, z;
-    uint32_t obj_id;
-    uint32_t item_type;
-    DECLARE_PACKET(c2s_ITEM_DROP);
-};
+//struct c2s_ITEM_DROP
+//    :public PacketHeader
+//{
+//    float x, y, z;
+//    uint32_t obj_id;
+//    uint32_t item_type;
+//    DECLARE_PACKET(c2s_ITEM_DROP);
+//};
 
 #pragma pack (pop)
