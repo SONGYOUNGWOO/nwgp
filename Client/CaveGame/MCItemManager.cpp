@@ -35,7 +35,7 @@ void MCItemManager::LoadItems()
 	}
 
 	// 매핑 테이블 초기화
-	InitializeTileToItemMap();
+	//InitializeTileToItemMap();
 }
 void MCItemManager::InitializeTileToItemMap()
 {
@@ -54,11 +54,11 @@ void MCItemManager::InitializeTileToItemMap()
 
 int MCItemManager::GetItemIDForTileID(int tileID) const
 {
-	auto it = m_tileToItemMap.find(tileID);
-	if (it != m_tileToItemMap.end()) {
-		return it->second;
-	}
-	return -1; // 매핑되지 않은 경우
+	//auto it = m_tileToItemMap.find(tileID);
+	//if (it != m_tileToItemMap.end()) {
+	//	return it->second;
+	//}
+	//return -1; // 매핑되지 않은 경우
 }
 
 void MCItemManager::Initialize()

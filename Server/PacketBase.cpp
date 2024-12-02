@@ -52,10 +52,6 @@ std::unordered_map<int, int> g_tileToItemMap = {
 	{7, 1},  // 나무블럭 --
 	{8, 5},  // 나뭇잎블럭 --
 	{9, 8},  // 유리블럭 --
-	{10, 9} // 엔더눈 블럭 -> 엔더눈 아이템 (추가 필요 시)
-	// 10은 화살
-
-	// 필요한 모든 매핑을 추가
 };
 
 DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
@@ -71,7 +67,7 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 
 	// 블록 파괴 전 tile_id가 유효한지 확인합니다.
 	if (pkt.tile_id == 0) {
-		std::cout << "No block to destroy at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << ")\n";
+		//std::cout << "No block to destroy at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << ")\n";
 		return; // 더 이상 처리할 필요가 없음
 	}
 
@@ -82,7 +78,7 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 	}
 
 	// 서버 내부에서 블록 파괴 처리
-	std::cout << "Block destroyed at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << "), Tile ID: " << static_cast<int>(pkt.tile_id) << '\n';
+	//std::cout << "Block destroyed at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << "), Tile ID: " << static_cast<int>(pkt.tile_id) << '\n';
 
 	tilemap->SetTile({ pkt_.x, pkt_.y, pkt_.z }, 0);
 
@@ -98,7 +94,7 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 		dropPkt.item_type = it->second;
 	}
 	else {
-		std::cout << "Invalid drop item type for tile ID: " << pkt.tile_id << '\n';
+		//std::cout << "Invalid drop item type for tile ID: " << pkt.tile_id << '\n';
 		return; // 매핑되지 않은 타일인 경우 드랍 아이템 없음
 	}
 
@@ -107,9 +103,9 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 	dropPkt.obj_id = unique_item_id++;
 
 	// 드롭된 아이템의 정보를 출력하여 확인
-	std::cout << "Item dropped at: (" << dropPkt.x << ", " << dropPkt.y << ", " << dropPkt.z
+	/*std::cout << "Item dropped at: (" << dropPkt.x << ", " << dropPkt.y << ", " << dropPkt.z
 		<< "), Item Type: " << static_cast<int>(dropPkt.item_type)
-		<< ", Object ID: " << dropPkt.obj_id << '\n';
+		<< ", Object ID: " << dropPkt.obj_id << '\n';*/
 
 	// 드롭 정보 모든 클라이언트에게 전송
 	for (const auto& [id_, session] : Mgr(IOExecutor)->GetAllSessions())
@@ -117,11 +113,6 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 		session->ReserveSend(dropPkt);
 	}
 }
-
-
-
-
-
 
 
 DECLARE_PACKET_FUNC(c2s_CREATE_BLOCK)

@@ -8,8 +8,8 @@ class MCItemManager : public Singleton<MCItemManager>
 {
 private:
 	Registry<MCItem> m_registry;
-	std::unordered_map<int, int> m_tileToItemMap;  // 타일 ID -> 아이템 ID 매핑 테이블
-	void InitializeTileToItemMap();  // 추가: 매핑 테이블 초기화 함수
+	std::unordered_map<int, int> m_tileToItemMap; 
+	void InitializeTileToItemMap();  
 
 public:
 	friend class Singleton;
