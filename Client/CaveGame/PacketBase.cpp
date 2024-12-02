@@ -97,9 +97,9 @@ DECLARE_PACKET_FUNC(s2c_ITEM_DROP)
 	auto item = Mgr(MCItemManager)->GetItemByID(pkt_.item_type);
 	if (!item) return; // 아이템이 유효하지 않으면 처리하지 않음
 
-	// DropItem 객체 생성
+	// DropItem 객체 생성`
 	auto pDropItem = make_shared<DropItem>(tilemap, item, 1); // pkt_.stack_size도 추가 고려 가능
-	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x + 0.5f, pkt_.y + 0.5f, pkt_.z + 0.5f });
+	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x , pkt_.y , pkt_.z });
 	pDropItem->SetID(pkt_.obj_id);
 
 	// 확인용 크기 설정 및 추가 처리

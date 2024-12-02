@@ -33,6 +33,32 @@ void MCItemManager::LoadItems()
 
 		m_registry.Insert(key.data(), MCItemTable::CreateItemForClient<MCItem>(key));
 	}
+
+	// 매핑 테이블 초기화
+	InitializeTileToItemMap();
+}
+void MCItemManager::InitializeTileToItemMap()
+{
+	//// 타일 ID와 아이템 ID의 일관된 매핑 정의
+	//m_tileToItemMap[1] = 1;  // 돌블럭 -> 돌 아이템
+	//m_tileToItemMap[2] = 2;  // 흙블럭 -> 흙 아이템
+	//m_tileToItemMap[3] = 3;  // 잔디블럭 -> 잔디 아이템
+	//m_tileToItemMap[4] = 4;  // 돌블럭 -> 돌 아이템
+	//m_tileToItemMap[5] = 8;  // 나뭇잎블럭 -> 나뭇잎 아이템
+	//m_tileToItemMap[6] = 6;  // 돌블럭 -> 돌 아이템
+	//m_tileToItemMap[7] = 7;  // 나무블럭 -> 나무 아이템
+	//m_tileToItemMap[8] = 5;  // 잔디블럭 -> 잔디 아이템
+	//m_tileToItemMap[9] = 9;  // 유리블럭 -> 유리 아이템
+	//// 필요한 모든 매핑을 추가
+}
+
+int MCItemManager::GetItemIDForTileID(int tileID) const
+{
+	auto it = m_tileToItemMap.find(tileID);
+	if (it != m_tileToItemMap.end()) {
+		return it->second;
+	}
+	return -1; // 매핑되지 않은 경우
 }
 
 void MCItemManager::Initialize()

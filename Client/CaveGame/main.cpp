@@ -39,7 +39,7 @@ int G_MC_SEED = -1;
 
 int main()
 {
-    Mgr(Core)->Init(1440, 720);
+    Mgr(Core)->Init(720, 360);
     Mgr(Core)->SetClearColor(RGBA_WHITE);
     MCItemTable::Init();
     Mgr(MCItemManager)->LoadItems();

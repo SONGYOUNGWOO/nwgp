@@ -41,6 +41,23 @@ DECLARE_PACKET_FUNC(c2s_ENTER)
 	Mgr(MCWorld)->PostWorldEvent([session = std::move(session)]() {Mgr(MCWorld)->AddAllObjects(session); });
 }
 
+// 서버에 타일 ID와 아이템 ID를 매핑하는 테이블
+std::unordered_map<int, int> g_tileToItemMap = {
+	{1, 0},  // 돌블럭 
+	{2, 2},  // 흙블럭 --
+	{3, 3},  // 잔디블럭 --
+	{4, 4},  // 깨진돌블럭 --
+	{5, 6},  // 판자--
+	{6, 7},  // 벽돌블럭 --
+	{7, 1},  // 나무블럭 --
+	{8, 5},  // 나뭇잎블럭 --
+	{9, 8},  // 유리블럭 --
+	{10, 9} // 엔더눈 블럭 -> 엔더눈 아이템 (추가 필요 시)
+	// 10은 화살
+
+	// 필요한 모든 매핑을 추가
+};
+
 DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 {
 	s2c_DESTROY_BLOCK pkt;
@@ -48,32 +65,62 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 	pkt.y = pkt_.y;
 	pkt.z = pkt_.z;
 
+	// 블록의 종류를 서버에서 정확하게 가져옵니다.
+	auto tilemap = Mgr(MCWorld)->GetTileMap();
+	pkt.tile_id = tilemap->GetTile({ pkt_.x, pkt_.y, pkt_.z });  // 블록의 종류를 가져옴
+
+	// 블록 파괴 전 tile_id가 유효한지 확인합니다.
+	if (pkt.tile_id == 0) {
+		std::cout << "No block to destroy at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << ")\n";
+		return; // 더 이상 처리할 필요가 없음
+	}
+
 	// 모든 클라이언트에게 블럭 파괴 알림
 	for (const auto& [id_, session] : Mgr(IOExecutor)->GetAllSessions())
 	{
 		session->ReserveSend(pkt);
 	}
 
-	Mgr(IOExecutor)->AppendToSendBuffer(pkt);
-	Mgr(MCWorld)->GetTileMap()->SetTile({ pkt_.x ,pkt_.y ,pkt_.z }, 0); // 블럭 파괴
-	// 블럭의 종류 까지 같이 보내야함
-	// 블럭의 종류를 같이 보내면 클라에서 블럭을 파괴할때 블럭의 종류를 알수있음
+	// 서버 내부에서 블록 파괴 처리
+	std::cout << "Block destroyed at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << "), Tile ID: " << static_cast<int>(pkt.tile_id) << '\n';
+
+	tilemap->SetTile({ pkt_.x, pkt_.y, pkt_.z }, 0);
 
 	// 드롭 아이템 처리
 	s2c_ITEM_DROP dropPkt;
-	dropPkt.x = pkt.x;
-	dropPkt.y = pkt.y;
-	dropPkt.z = pkt.z;
-	dropPkt.item_type = pkt.tile_id;  // tileID를 그대로 사용
+	dropPkt.x = pkt.x + 0.5f;
+	dropPkt.y = pkt.y + 0.5f;
+	dropPkt.z = pkt.z + 0.5f;
+
+	// 매핑 테이블을 사용하여 드랍 아이템 타입 설정
+	auto it = g_tileToItemMap.find(pkt.tile_id);
+	if (it != g_tileToItemMap.end()) {
+		dropPkt.item_type = it->second;
+	}
+	else {
+		std::cout << "Invalid drop item type for tile ID: " << pkt.tile_id << '\n';
+		return; // 매핑되지 않은 타일인 경우 드랍 아이템 없음
+	}
 
 	// 드롭된 아이템의 고유 ID를 설정 (각 아이템에 대해 고유한 ID를 부여해야 함)
 	static uint32_t unique_item_id = 1;
 	dropPkt.obj_id = unique_item_id++;
-	//// 드롭 정보 전송
-	Mgr(IOExecutor)->AppendToSendBuffer(dropPkt);
 
+	// 드롭된 아이템의 정보를 출력하여 확인
+	std::cout << "Item dropped at: (" << dropPkt.x << ", " << dropPkt.y << ", " << dropPkt.z
+		<< "), Item Type: " << static_cast<int>(dropPkt.item_type)
+		<< ", Object ID: " << dropPkt.obj_id << '\n';
 
+	// 드롭 정보 모든 클라이언트에게 전송
+	for (const auto& [id_, session] : Mgr(IOExecutor)->GetAllSessions())
+	{
+		session->ReserveSend(dropPkt);
+	}
 }
+
+
+
+
 
 
 

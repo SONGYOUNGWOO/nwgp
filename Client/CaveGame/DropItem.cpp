@@ -51,7 +51,9 @@ void DropItem::Start()
 	mesh->Init(std::move(vertices), std::move(indices));
 	shared_ptr<Model> model = make_shared<Model>();
 	m_material = make_shared<Material>();
+
 	m_material->AddTexture2D(m_item->GetIconTexture());
+
 	model->AddMesh(mesh);
 	model->AddMaterial(m_material);
 	m_renderer->SetModelData(model);
