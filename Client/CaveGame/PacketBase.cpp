@@ -99,10 +99,10 @@ DECLARE_PACKET_FUNC(s2c_ITEM_DROP)
 
 	// DropItem 객체 생성
 	auto pDropItem = make_shared<DropItem>(tilemap, item, 1); // pkt_.stack_size도 추가 고려 가능
-	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x, pkt_.y, pkt_.z });
+	pDropItem->GetTransform()->SetLocalPosition({ pkt_.x + 0.5f, pkt_.y + 0.5f, pkt_.z + 0.5f });
 	pDropItem->SetID(pkt_.obj_id);
 
 	// 확인용 크기 설정 및 추가 처리
-	pDropItem->GetTransform()->SetLocalScale(5.f);
+	pDropItem->GetTransform()->SetLocalScale(1.f);
 	Mgr(ServerObjectManager)->AddObject(std::move(pDropItem), GROUP_TYPE::DROP_ITEM);
 }
