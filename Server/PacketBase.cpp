@@ -66,10 +66,10 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 	pkt.tile_id = tilemap->GetTile({ pkt_.x, pkt_.y, pkt_.z });  // 블록의 종류를 가져옴
 
 	// 블록 파괴 전 tile_id가 유효한지 확인합니다.
-	if (pkt.tile_id == 0) {
-		//std::cout << "No block to destroy at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << ")\n";
-		return; // 더 이상 처리할 필요가 없음
-	}
+	//if (pkt.tile_id == 0) {
+	//	//std::cout << "No block to destroy at: (" << pkt_.x << ", " << pkt_.y << ", " << pkt_.z << ")\n";
+	//	return; // 더 이상 처리할 필요가 없음
+	//}
 
 	// 모든 클라이언트에게 블럭 파괴 알림
 	for (const auto& [id_, session] : Mgr(IOExecutor)->GetAllSessions())
@@ -94,12 +94,14 @@ DECLARE_PACKET_FUNC(c2s_DESTROY_BLOCK)
 		dropPkt.item_type = it->second;
 	}
 	else {
-		//std::cout << "Invalid drop item type for tile ID: " << pkt.tile_id << '\n';
+		std::cout << "Invalid drop item type for tile ID: " << pkt.tile_id << '\n';
 		return; // 매핑되지 않은 타일인 경우 드랍 아이템 없음
 	}
 
 	// 드롭된 아이템의 고유 ID를 설정 (각 아이템에 대해 고유한 ID를 부여해야 함)
-	static uint32_t unique_item_id = 1;
+	//static uint32_t unique_item_id = 1;
+
+	static std::atomic<uint32_t> unique_item_id = 11; // 원자적 연산으로 변경
 	dropPkt.obj_id = unique_item_id++;
 
 	// 드롭된 아이템의 정보를 출력하여 확인

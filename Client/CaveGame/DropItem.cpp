@@ -76,8 +76,17 @@ void DropItem::Update()
 	glm::vec3 pos_post = pos_pre + v * DT;
 
 	bool ground = m_refTilemap->HandleCollision(pos_pre, pos_post, v, 0.125f, 0.25f);
+
+	//
+	//if (ground) {
+	//	// 지면에 충돌한 경우
+	//	v.y = 0.0f;  // y축 속도를 0으로 설정하여 멈추도록 함
+	//	pos_post.y = pos_pre.y;  // 지면에 위치를 고정
+	//}
+
+	// 업데이트된 위치 및 속도 설정
 	SetPosition(pos_post);
 	SetVelocity(v);
-	
+
 	ServerObject::Update();
 }
